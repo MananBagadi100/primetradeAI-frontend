@@ -1,21 +1,41 @@
-import { useState } from 'react'
-import './styles/App.css'
-import Navbar from './components/Navbar'
-import { BrowserRouter, Routes } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/Profile";
+
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
+    return (
+        <BrowserRouter>
+            <Navbar />
+            <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
 
-  return (
-    <div className="all-pages-main-container">
-      <BrowserRouter>
-        <Navbar />
-        <div className="all-pages-content-area">
-          <Routes>
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </div>
-  )
+                <Route
+                    path="/dashboard"
+                    element={
+                        <ProtectedRoute>
+                            <Dashboard />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/profile"
+                    element={
+                        <ProtectedRoute>
+                            <Profile />
+                        </ProtectedRoute>
+                    }
+                />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
-export default App
+export default App;
