@@ -76,6 +76,25 @@ const Register = () => {
                     </div>
 
                     <div className="form-group">
+                        <label htmlFor="city">City</label>
+                        <input
+                            id="city"
+                            type="text"
+                            placeholder="Mumbai"
+                            {...formRegister("city", {
+                                required: "City is required",
+                                minLength: {
+                                    value: 2,
+                                    message: "City must be at least 2 characters"
+                                }
+                            })}
+                        />
+                        {errors.city && (
+                            <p className="input-error">{errors.city.message}</p>
+                        )}
+                    </div>
+
+                    <div className="form-group">
                         <label htmlFor="password">Password</label>
                         <input
                             id="password"
