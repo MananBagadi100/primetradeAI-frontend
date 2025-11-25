@@ -88,11 +88,12 @@
     border-radius: 0.6rem;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.1s ease;
+    transition: all 0.15s ease;
 }
 
 .save-btn:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    filter: brightness(0.92);
 }
 
 .save-btn:disabled {
