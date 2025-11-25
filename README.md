@@ -23,11 +23,12 @@ It integrates seamlessly with the backend (Node.js + MySQL) using JWT authentica
 - View tasks  
 - Search tasks  
 - Delete tasks  
+- Edit tasks (popup modal)  
 - Uses backend CRUD APIs  
 
 ### 👤 User Profile
 - Fetch profile  
-- Update name  
+- Update name & city  
 - Realtime UI update  
 
 ---
@@ -126,12 +127,29 @@ Frontend communicates with backend routes:
 - `PUT /user/profile`
 - `GET /tasks`
 - `POST /tasks`
+- `PUT /tasks/:id`
 - `DELETE /tasks/:id`
 
 ---
 
 ## 🧪 Testing
 Use **Postman** or **Thunder Client** to verify backend routes before connecting UI.
+
+---
+
+## 🚀 Scaling Frontend–Backend Integration for Production
+
+Here is how this project can be prepared for a real production environment:
+
+1. Use separate `.env` files for development and production.
+2. Deploy the frontend on Vercel/Netlify for global CDN performance.
+3. Move MySQL to a managed cloud database such as Railway or PlanetScale.
+4. Add stronger validation and restrict CORS to the production domain.
+5. Implement backend logging (Winston/Morgan) and error tracking (Sentry).
+6. Dockerize the backend for consistent deployments across environments.
+7. Use GitHub Actions for automated CI/CD (build → test → deploy).
+
+Simple, practical improvements that ensure stability, performance, and maintainability.
 
 ---
 
