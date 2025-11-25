@@ -1,18 +1,151 @@
-# React + Vite
+# PrimeTrade Frontend (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Overview
+This is the **Frontend** for the PrimeTrade assignment, built using **React 19**, **Vite**, **CSS**, and a modern dark UI theme inspired by trading dashboards.  
+It integrates seamlessly with the backend (Node.js + MySQL) using JWT authentication.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Features
+### 🔐 Authentication
+- Login & Register pages  
+- Client-side validation (React Hook Form)  
+- JWT stored in localStorage  
+- Protected routes using `ProtectedRoute.jsx`
 
-## React Compiler
+### 🧭 Navigation
+- Responsive Navbar  
+- Dark trading-style UI  
+- Auto-hides links based on auth state  
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+### 📊 Dashboard
+- Add tasks  
+- View tasks  
+- Search tasks  
+- Delete tasks  
+- Uses backend CRUD APIs  
 
-Note: This will impact Vite dev & build performances.
+### 👤 User Profile
+- Fetch profile  
+- Update name  
+- Realtime UI update  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🗂 Folder Structure
+
+```
+src/
+│
+├── api/
+│   └── axiosInstance.js
+│
+├── components/
+│   ├── Navbar.jsx
+│   └── ProtectedRoute.jsx
+│
+├── context/
+│   └── AuthContext.jsx
+│
+├── pages/
+│   ├── Login.jsx
+│   ├── Register.jsx
+│   ├── Dashboard.jsx
+│   └── Profile.jsx
+│
+├── styles/
+│   ├── LoginStyles.css
+│   ├── RegisterStyles.css
+│   ├── NavbarStyles.css
+│   ├── DashboardStyles.css
+│   └── ProfileStyles.css
+│
+├── App.jsx
+└── main.jsx
+```
+
+---
+
+## 🛠️ Tech Stack
+- **React 19.1.0**
+- **Vite**
+- **React Router DOM**
+- **React Hook Form**
+- **Axios**
+- **Custom CSS (Dark theme)**
+
+---
+
+## 🔧 Installation & Setup
+
+### 1️⃣ Install dependencies
+```
+npm install
+```
+
+### 2️⃣ Start development server
+```
+npm run dev
+```
+
+### 3️⃣ Environment Variables
+Create a `.env` file:
+
+```
+VITE_BACKEND_URL=http://localhost:3000/api
+```
+
+### 4️⃣ Axios Instance auto-attaches JWT  
+Located in `src/api/axiosInstance.js`.
+
+---
+
+## 🔐 Protected Routes
+`ProtectedRoute.jsx` prevents unauthorized access:
+
+```jsx
+if (!token) return <Navigate to="/login" />;
+```
+
+---
+
+## 🎨 UI Theme
+- Premium dark mode styling  
+- Trading dashboard aesthetic  
+- Neon green accents  
+- Fully responsive  
+
+---
+
+## 🔗 Backend API Integration
+Frontend communicates with backend routes:
+
+- `POST /auth/login`
+- `POST /auth/register`
+- `GET /user/profile`
+- `PUT /user/profile`
+- `GET /tasks`
+- `POST /tasks`
+- `DELETE /tasks/:id`
+
+---
+
+## 🧪 Testing
+Use **Postman** or **Thunder Client** to verify backend routes before connecting UI.
+
+---
+
+## 📦 Build for Production
+```
+npm run build
+```
+
+---
+
+## 👨‍💻 Author
+Manan Bagadi — Frontend Developer Intern Assignment (PrimeTrade AI)
+
+---
+
+## 📄 License
+This project is for recruitment & assignment evaluation purposes only.
