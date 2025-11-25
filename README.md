@@ -1,5 +1,9 @@
 # PrimeTrade Frontend (React)
 
+## 🎥 Project Walkthrough Video (2–3 minutes)
+▶️ https://youtu.be/IRa9oQEmmoM
+
+
 ## 🚀 Overview
 This is the **Frontend** for the PrimeTrade assignment, built using **React 19**, **Vite**, **CSS**, and a modern dark UI theme inspired by trading dashboards.  
 It integrates seamlessly with the backend (Node.js + MySQL) using JWT authentication.
