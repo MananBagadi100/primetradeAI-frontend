@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
+import Footer from "./components/Footer";
 import './styles/App.css'
 
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -38,6 +39,7 @@ function App() {
                         />
                     </Routes>
                 </div>
+                <Footer />
             </BrowserRouter>
         </div>
     );
