@@ -1,13 +1,16 @@
 .dash-container {
+    display: flex;
+    flex-direction: column;
     padding: 2rem 1.5rem;
-    max-width: 900px;
-    margin: 0 auto;
+    width: 100%;
     color: #e5e7eb;
+    background: radial-gradient(circle at top, #1e293b 0, #020617 45%, #000 100%);
+    box-sizing: border-box;
 }
 
 .dash-title {
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: bold;
     margin-bottom: 1.5rem;
     text-align: center;
     background: linear-gradient(90deg, #22c55e, #16a34a);
@@ -17,7 +20,15 @@
 }
 
 /* Cards */
-.task-form-card,
+.task-form-card {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    border-radius: 1rem;
+    padding: 1.8rem;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
 .task-list-card {
     background: rgba(15, 23, 42, 0.8);
     border: 1px solid rgba(148, 163, 184, 0.25);
