@@ -8,6 +8,11 @@ const Dashboard = () => {
     const [description, setDescription] = useState("");
     const [search, setSearch] = useState("");
 
+    // Popup Edit option States
+    const [isEditOpen, setIsEditOpen] = useState(false);
+    const [editId, setEditId] = useState(null);
+    const [editTitle, setEditTitle] = useState("");
+    const [editDescription, setEditDescription] = useState("");
     // Fetch tasks on mount
     const fetchTasks = async () => {
         try {
@@ -48,11 +53,36 @@ const Dashboard = () => {
             console.log("Error deleting task:", err);
         }
     };
+    // Updating task when pop up dialog box comes
+    const handleUpdateTask = async (e) => {
+        e.preventDefault();
+        try {
+            await axiosInstance.put(`/tasks/${editId}`, {
+                title: editTitle,
+                description: editDescription
+            });
+
+            setIsEditOpen(false);
+            setEditId(null);
+            fetchTasks(); // refresh list
+        } catch (err) {
+            console.log("Error updating task:", err);
+        }
+    };
+
 
     // Search filter
     const filteredTasks = tasks.filter((task) =>
         task.title.toLowerCase().includes(search.toLowerCase())
     );
+
+    //this function prefills the existing values from the database into the form
+    const openEditModal = (task) => {
+        setEditId(task.id);
+        setEditTitle(task.title);
+        setEditDescription(task.description || "");
+        setIsEditOpen(true);
+    };
 
     return (
         <div className="dash-container">
@@ -109,6 +139,12 @@ const Dashboard = () => {
                                             <p className="task-desc">{task.description}</p>
                                         )}
                                     </div>
+                                    
+                                    <button 
+                                        className="task-edit-btn" 
+                                        onClick={() => openEditModal(task)}>
+                                        Edit
+                                    </button>
 
                                     <button
                                         className="delete-btn"
@@ -122,6 +158,43 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
+            {isEditOpen && (
+                <div className="modal-overlay">
+                    <div className="modal-container">
+                        <h3>Edit Task</h3>
+
+                        <form onSubmit={handleUpdateTask} className="modal-form">
+                            <label>Title</label>
+                            <input
+                                type="text"
+                                value={editTitle}
+                                onChange={(e) => setEditTitle(e.target.value)}
+                                required
+                            />
+
+                            <label>Description</label>
+                            <textarea
+                                value={editDescription}
+                                onChange={(e) => setEditDescription(e.target.value)}
+                            />
+
+                            <div className="modal-buttons">
+                                <button type="submit" className="update-btn">
+                                    Update
+                                </button>
+
+                                <button
+                                    type="button"
+                                    className="cancel-btn"
+                                    onClick={() => setIsEditOpen(false)}
+                                >
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

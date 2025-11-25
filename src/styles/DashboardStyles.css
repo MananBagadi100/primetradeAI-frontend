@@ -176,3 +176,107 @@
     text-align: center;
     color: #9ca3af;
 }
+/* CSS for the dialog box*/
+/* Modal Overlay  */
+/* Modal Overlay  */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.45); /* softer and premium */
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+/* Modal Box */
+.modal-container {
+    display: flex;
+    flex-direction: column;
+    background: rgba(15, 23, 42, 0.85); /* matches task cards */
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    backdrop-filter: blur(12px);
+    padding: 1.8rem;
+    width: 90%;
+    max-width: 450px;
+    border-radius: 1rem;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+    color: #e5e7eb;
+    box-sizing: border-box;
+}
+
+/* Modal Title */
+.modal-container h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #22c55e, #16a34a);
+    background-clip: text; 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Form Inputs */
+.modal-form input,
+.modal-form textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: 0.6rem;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    background: rgba(2, 6, 23, 0.85);
+    color: #e2e8f0;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.modal-form textarea {
+    resize: none;
+    height: 100px;
+}
+
+/* Buttons */
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.update-btn {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: #020617;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.cancel-btn {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: #fef2f2;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Edit Button */
+.task-edit-btn {
+    background: linear-gradient(135deg, #1e88e5, #0b69c7);
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: transform 0.1s ease;
+}
+
+.task-edit-btn:hover {
+    transform: translateY(-2px);
+}
